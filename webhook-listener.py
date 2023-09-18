@@ -25,7 +25,6 @@ class WebhookListener(BaseHTTPRequestHandler):
                 self.send_error(400, 'X-Hub-Signature header missing')
                 return
 
-            print('secret: %s, ' % webhook_secret)
             request_body = self.rfile.read(int(self.headers.get('Content-Length')))
             sha1 = hmac.new(webhook_secret.encode(), request_body, hashlib.sha1)
             if not hmac.compare_digest('sha1=' + sha1.hexdigest(), signature):
