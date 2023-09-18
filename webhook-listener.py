@@ -8,7 +8,7 @@ import signal
 from datetime import datetime
 import shlex
 
-PORT: int = int(os.getenv('PORT')) or 8080
+PORT: int = int(os.getenv('PORT') or 8080)
 PRINT_DEMO_SIGNATURE: bool = os.getenv('PRINT_DEMO_SIGNATURE') == 'true'
 COMMAND = os.getenv('COMMAND')
 WEBHOOK_SECRET_PATH = os.getenv('WEBHOOK_SECRET_PATH') or "/run/secrets/webhook_secret"

@@ -4,9 +4,7 @@ RUN apt update && apt install -y hugo
 
 WORKDIR /app
 
-COPY shared/ssh/ /root/.ssh/
-RUN chmod 600 /root/.ssh/*
-RUN chown root:root /root/.ssh/*
+ADD --chmod=600 --chown="root:root" shared/ssh/* /root/.ssh/
 
 COPY webhook-listener.py /app/webhook-listener.py
 
