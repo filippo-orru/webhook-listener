@@ -1,5 +1,7 @@
 # User
 webhook.secret
+shared/ssh/*
+!shared/ssh/.gitkeep
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
