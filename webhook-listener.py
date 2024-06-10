@@ -39,7 +39,7 @@ class WebhookListener(BaseHTTPRequestHandler):
             self.wfile.write(b'OK\n')
             self.wfile.flush()
 
-            subprocess.Popen(["sh", "-c", "\"%s\"" % COMMAND])
+            subprocess.Popen(["sh", "-c", "\"%s\"" % COMMAND], stdout=sys.stdout, stderr=sys.stderr)
         else:
             self.send_error(404, 'Not found')
 
